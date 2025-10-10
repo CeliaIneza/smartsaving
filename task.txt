@@ -1,0 +1,10 @@
+Task: My Portfolio App
+
+1. Create 3 pages:
+Home (short welcome)
+Projects (list of projects)
+Contact (with contact info)
+
+2.Create Navbar Component 
+
+3. Add a 404 page for unknown routes if the user tries to access them
