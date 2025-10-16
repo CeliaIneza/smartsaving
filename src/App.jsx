@@ -1,21 +1,24 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import React, { useState, useEffect } from "react";
+import "./App.css";
+
 
 function App() {
+  const [theme, setTheme] = useState("light");
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
   return (
-    <Router>
-      <Navbar />
-      <div style={{ padding: "20px" }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <h1>{theme === "light" ? " Light Mode" : " Dark Mode"}</h1>
+      <button onClick={toggleTheme}>
+        Switch to {theme === "light" ? "Dark" : "Light"} Mode
+      </button>
+    </div>
   );
 }
 
